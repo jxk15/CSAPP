@@ -1,0 +1,11 @@
+{
+    "cSpell.ignoreWords": [
+        "cmov",
+        "multstore",
+        "rfact"
+    ],
+    "files.associations": {
+        "*.txt": "plaintext",
+        "stdio.h": "c"
+    }
+}
