@@ -1,11 +1,26 @@
 	.file	"P.c"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"%ld\n"
 	.text
 	.globl	Q
 	.type	Q, @function
 Q:
 .LFB24:
 	.cfi_startproc
-	rep ret
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	leaq	10(%rdi), %rbx
+	movq	%rbx, %rdx
+	movl	$.LC0, %esi
+	movl	$1, %edi
+	movl	$0, %eax
+	call	__printf_chk
+	movq	%rbx, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
 	.cfi_endproc
 .LFE24:
 	.size	Q, .-Q
@@ -20,6 +35,8 @@ P:
 	pushq	%rbx
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
 	movq	%rdi, %rbp
 	movq	%rsi, %rdi
 	call	Q
@@ -27,6 +44,8 @@ P:
 	movq	%rbp, %rdi
 	call	Q
 	addq	%rbx, %rax
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 24
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp
@@ -35,10 +54,6 @@ P:
 	.cfi_endproc
 .LFE25:
 	.size	P, .-P
-	.section	.rodata.str1.1,"aMS",@progbits,1
-.LC0:
-	.string	"%ld\n"
-	.text
 	.globl	main
 	.type	main, @function
 main:

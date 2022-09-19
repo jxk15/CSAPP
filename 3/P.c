@@ -3,6 +3,8 @@
 long Q(long a)
 {
     a += 10;
+    printf("%ld\n", a);
+    return a;
 }
 
 long P(long x, long y)
