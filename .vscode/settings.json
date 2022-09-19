@@ -1,8 +1,6 @@
 {
     "cSpell.ignoreWords": [
-        "cmov",
-        "multstore",
-        "rfact"
+        "pval"
     ],
     "files.associations": {
         "*.txt": "plaintext",

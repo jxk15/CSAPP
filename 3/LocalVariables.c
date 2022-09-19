@@ -27,10 +27,18 @@ void f4()
     short x4;
     printf("%p %p %p %p\n", &x1, &x2, &x3, &x4);
 }
+
+void f5()
+{
+    printf("here is f4()\n");
+    char x1;
+    printf("%p\n", &x1);
+}
 int main()
 {
     f2();
     f3();
     f4();
+    f5();
     return 0;
 }
