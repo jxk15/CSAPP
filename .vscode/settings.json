@@ -1,9 +1,0 @@
-{
-    "cSpell.ignoreWords": [
-        "pval"
-    ],
-    "files.associations": {
-        "*.txt": "plaintext",
-        "stdio.h": "c"
-    }
-}
